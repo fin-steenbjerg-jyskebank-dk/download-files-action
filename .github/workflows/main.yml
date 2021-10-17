@@ -11,7 +11,7 @@ jobs:
         uses: ./
         id: transfer
         with:
-          file-to-transfer: 'entrypoint'
+          file-to-transfer: 'entrypoint.sh'
           url-to-transfer-to: 'https://installables.stonemountain.dk/installables/{instId}/downloadables/{downId}'
           query-param-with-size: 'size'
       - name: Get the output time
