@@ -1,15 +1,23 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Transfer file'
+description: 'Transfers an file generated during the workflow to an post url'
 inputs:
-  who-to-greet:
-    description: 'Who to greet'
+  file-to-transfer:
+    description: 'file to transfer'
     required: true
-    default: 'World'
+  url-to-transfer-to:
+    description: 'the url to transfer to'
+    required: true
+  query-param-with-size:
+    description: 'add the size of the file as query param with this name'
+    required: false
+    default: 'size'
 outputs:
   time:
-    description: 'The time we greeted you'
+    description: 'The time the transfer was completed'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.file-to-transfer }}
+    - ${{ inputs.url-to-transfer-to }}
+    - ${{ inputs.query-param-with-size }}

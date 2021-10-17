@@ -1,16 +1,18 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  test_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: a job testing file transfer
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Transfer file
         uses: ./
-        id: hello
+        id: transfer
         with:
-          who-to-greet: 'Mona the Octocat'
+          file-to-transfer: 'entrypoint'
+          url-to-transfer-to: 'https://installables.stonemountain.dk/installables/{instId}/downloadables/{downId}'
+          query-param-with-size: 'size'
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
