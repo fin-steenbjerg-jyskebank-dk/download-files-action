@@ -1,16 +1,15 @@
 name: 'Transfer file'
 description: 'Transfers an file generated during the workflow to an post url'
 inputs:
-  file-to-transfer:
+  file-path:
     description: 'file to transfer'
     required: true
-  url-to-transfer-to:
-    description: 'the url to transfer to'
+  name:
+    description: 'the name of the package'
     required: true
-  query-param-with-size:
-    description: 'add the size of the file as query param with this name'
-    required: false
-    default: 'size'
+  version:
+    description: 'the version of the package'
+    required: true
 outputs:
   time:
     description: 'The time the transfer was completed'
@@ -18,6 +17,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.file-to-transfer }}
-    - ${{ inputs.url-to-transfer-to }}
-    - ${{ inputs.query-param-with-size }}
+    - ${{ inputs.file-path }}
+    - ${{ inputs.name }}
+    - ${{ inputs.version }}
