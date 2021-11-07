@@ -10,6 +10,13 @@ inputs:
   version:
     description: 'the version of the package'
     required: true
+  client:
+    description: 'the client id to use'
+    required: true
+  client-secret:
+    description: 'the client secret to use'
+    required: true
+
 outputs:
   time:
     description: 'The time the transfer was completed'
@@ -20,3 +27,5 @@ runs:
     - ${{ inputs.file-path }}
     - ${{ inputs.name }}
     - ${{ inputs.version }}
+    - ${{ inputs.client }}
+    - ${{ inputs.client-secret }}
