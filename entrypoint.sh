@@ -1,5 +1,11 @@
 #!/bin/sh -l
 set -x
+
+echo 'installing jq'
+sudo apt-get install jq
+
+jq --help
+
 echo "transfering file $1 with name $2 and version $3 at" $(date)
 
 filename=$(basename "$1")
