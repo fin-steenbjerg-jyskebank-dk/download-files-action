@@ -7,10 +7,10 @@ filename=$(basename "$1")
 filesize=$(stat -c %s "$1")
 
 
-curl -v -X POST 'https://auth.stonemountain.dk/realms/house/protocol/openid-connect/token' -H 'content-type: application/x-www-form-urlencoded' -d "client_id=$4" -d "client_secret=$5" -d 'grant_type=client_credentials'
+curl --insecure -v -X POST 'https://auth.stonemountain.dk/realms/house/protocol/openid-connect/token' -H 'content-type: application/x-www-form-urlencoded' -d "client_id=$4" -d "client_secret=$5" -d 'grant_type=client_credentials'
 
 access_token=$(\
-    curl -v -X POST 'https://auth.stonemountain.dk/realms/house/protocol/openid-connect/token' \
+    curl --insecure -v -X POST 'https://auth.stonemountain.dk/realms/house/protocol/openid-connect/token' \
     -H 'content-type: application/x-www-form-urlencoded' \
     -d "client_id=$4" \
     -d "client_secret=$5" \
