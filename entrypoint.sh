@@ -1,5 +1,5 @@
 #!/bin/sh -l
-set -x
+# set -x
 
 echo "transfering file $1 with name $2 and version $3 at" $(date)
 
